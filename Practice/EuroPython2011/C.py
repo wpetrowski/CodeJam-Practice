@@ -11,7 +11,7 @@ for i in xrange(N):
     d = {}
 
     for start in xrange(len(expr)-1):
-        for end in xrange(start+1, len(expr)):
+        for end in xrange(start+1, len(expr)+1):
             sub = expr[start:end]
 
             c = len(filter(lambda x: x in "aeiou", sub))
@@ -24,6 +24,9 @@ for i in xrange(N):
             elif c > 1:
                 break
 
+    repeatedSyllables = filter(lambda x: len(x[1]) > 1, d.items())
+
     print 'Case #%d:' % (i+1)
     print expr
     print sorted(d.items(), key=lambda x: x[1])
+    print sorted(repeatedSyllables, key=lambda x: x[1])
