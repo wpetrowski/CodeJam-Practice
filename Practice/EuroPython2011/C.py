@@ -14,19 +14,16 @@ for i in xrange(N):
         for end in xrange(start+1, len(expr)):
             sub = expr[start:end]
 
-            cnt = 0
-            for letter in vowels:
-                cnt += sub.count(letter)
+            c = len(filter(lambda x: x in "aeiou", sub))
 
-            if cnt == 1:
+            if c == 1:
                 if not sub in d:
                     d[sub] = []
-                d[sub].append[start]
+                d[sub].append(start)
 
-            if cnt > 1:
+            elif c > 1:
                 break
 
-
-
-
     print 'Case #%d:' % (i+1)
+    print expr
+    print sorted(d.items(), key=lambda x: x[1])
