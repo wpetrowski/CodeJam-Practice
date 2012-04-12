@@ -24,11 +24,11 @@ def checkIfSpell(word, start_ix, end_ix, orig_end_ix, curSyl, repeatedSyllables,
 
 N = int(sys.stdin.readline())
 
-for i in xrange(N):
+for case in xrange(N):
     expr = sys.stdin.readline().strip()
     d = {}
 
-    for start in xrange(len(expr)-1):
+    for start in xrange(len(expr)):
         for end in xrange(start+1, len(expr)+1):
             sub = expr[start:end]
 
@@ -60,8 +60,8 @@ for i in xrange(N):
 
                 found = checkIfSpell(expr, start_ix, end_ix, end_ix, syl[0], repeatedSyllables, numSyls)
 
-    print 'Case #%d:' % (i+1)
-    print expr
-    print found
+    print 'Case #%d: %s' % (case+1, ("Nothing.","Spell!")[found])
+    #print expr
+    #print found
     #print sorted(d.items(), key=lambda x: x[1])
     #print sorted(repeatedSyllables, key=lambda x: x[1])
